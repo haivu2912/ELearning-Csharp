@@ -1,0 +1,78 @@
+string filename = "CSDL1.xls";
+Response.ContentType = "application/octet-stream";
+Response.AppendHeader("Content-Disposition","attachment;filename=" + filename);
+Response.TransmitFile(Server.MapPath("~/Luu_Upload/CSDL1.xls"));
+Response.End(); 
+using System.IO;
+{
+if(FileUpload1.HasFile)
+{
+	string fileName = FileUpload1.FileName;
+	FileUpload1.PostFile.SaveAs(Server.MapPath("~/Data/") + fileName)
+}
+
+DataTable dt = new DataTable();
+dt.Columns.Add("File")
+dt.Columns.Add("Size")
+dt.Columns.Add("Type")
+
+foreach(string strfile in Directory.GetFiles(Server.MapPath("~Data"))
+{
+	FileInfo fi = new FileInfor(strfile);
+	dt.Rows.Add(fi.Name, fi.Length, GetFileTypeExtension(fi.Extension)//fi.Extension)
+}
+GridView1.DataSource = dt;
+GridView1.DataBind();
+}
+
+private string GetFileTypeExtension(string fileExtension)
+{
+	switch(fileExtension.ToLower())
+	{
+		case ".docx":
+		case ".doc":
+			return "MS Word Document"
+		case ".xlsx":
+		case ".xls":
+			return "MS Excel Document"
+		case ".txt":
+			return "Text Document";
+		default:
+			return "unknow";
+	}
+}
+
+proctected void GridView1_RowCommand()
+{
+	Response.Clear();
+	Response.ContentType = "application/octet-stream";
+	Response.AppendHeader("Content-Disposition","attachment;filename=" + e.CommandArgument);
+	Response.TransmitFile(Server.MapPath("~/Data/") + e.CommandArgument);
+	Response.End();
+}
+
+
+<asp GridView ID="" 
+	<Columns>
+		<asp:TemplateFiels HeaderText = "File">
+			<ItemTemplate>
+				<asp:LinkButton CommandArgument='<%# Eval("File")%>' CommandNane='<%# Eval("File")%>' Text='<%# Eval("File")%>'
+		<asp:BoundField DataField="Size", HeaderText = "Size in byte"
+		<asp:BoundField DataField="File", HeaderText = "File Type"	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

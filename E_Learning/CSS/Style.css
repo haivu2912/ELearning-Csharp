@@ -1,0 +1,106 @@
+﻿body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #F6F7FA;
+}
+
+.navLeft {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    background-color: #0E1A35;
+}
+
+.btn__signout {
+    background-color: transparent;
+}
+
+.navLeft__logo {
+    width: 50px;
+    height: 50px;
+}
+
+.navLeft li {
+    width: 100%;
+    padding: 1rem;
+}
+
+    .navLeft li a {
+        color: aliceblue;
+        text-decoration: none;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .navLeft li:hover {
+        background-color: #122143;
+        transition: .3s;
+    }
+
+.header {
+    height: 100px;
+    padding-top: 1rem;
+    background-color: white;
+}
+
+.header__logo {
+    width: 50px;
+    height: 50px;
+}
+
+.header__search {
+    padding: 5px;
+    border-radius: 5px;
+    width: 80%;
+    padding: 5px;
+    margin-right: 10px;
+    border-color: #DFD8CA;
+    transition: 0.5s;
+}
+
+    .header__search:focus {
+        outline-color: #DFD8CA;
+    }
+
+.header__btn {
+    border-radius: 5px;
+    background-color: #2F86A6;
+    opacity: 0.8;
+    transition: 0.3s;
+    color: aliceblue;
+}
+
+    .header__btn:hover {
+        opacity: 1;
+    }
+
+.header__user {
+    padding: 0;
+    margin: 0;
+}
+
+.header__user {
+    list-style: none;
+}
+
+    .header__user li {
+        cursor: pointer;
+    }
+
+    .header__user i, .header__user p {
+        padding: 1rem 0;
+        font-size: 15px;
+    }
+
+    .header__user i {
+        margin-left: 10px;
+    }
+
+.nav-tabs li a {
+    padding: 2rem;
+}
+
+    .nav-tabs li a:hover {
+        text-decoration: none;
+    }

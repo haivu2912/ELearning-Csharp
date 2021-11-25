@@ -1,0 +1,114 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="E_Learning.User.Admin.Admin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link rel="stylesheet" type="text/css" href="../../CSS/Style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../../Content/font-awesome.min.css" rel="stylesheet" />
+    <script src="../../Scripts/jquery-3.4.1.min.js"></script>
+    <style>
+        .logo{
+            width:50px;
+            margin-right:10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <img alt="" src="../../assets/logo.png" class="logo"/>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Quản lý lớp học
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" runat="server" href="Default.aspx">Xem danh sách lớp</a>
+                            <a class="dropdown-item" runat="server" href="Themlophoc.aspx">Thêm lớp học</a>
+                        </div>
+                        
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Quản lý giảng viên
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" runat="server" href="ListGiangVien.aspx">Xem danh sách giảng viên</a>
+                            <a class="dropdown-item" runat="server" href="ThemGiangVien.aspx">Thêm giảng viên</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Quản lý sinh viên
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" runat="server" href="ListSinhVien.aspx">Xem danh sách sinh viên</a>
+                            <a class="dropdown-item" runat="server" href="ThemSinhVien.aspx">Thêm sinh viên</a>
+                            <a class="dropdown-item" runat="server" href="AddSvInClass.aspx">Đăng ký sinh viên vào lớp</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Quản lý tài khoản
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" runat="server" href="ListTaikhoan.aspx">Xem danh sách tài khoản</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm khóa học" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </div>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <asp:Label ID="Label1" runat="server" Text="username"></asp:Label>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" runat="server" href="#">Xem thông tin</a>
+
+                        <div class="dropdown-divider"></div>
+
+                        <asp:Button ID="Button1" CssClass="btn btn__signout" runat="server" Text="Đăng xuất" OnClick="Button1_Click" />
+                    </div>
+                </div>
+            </div>
+
+            <%--<asp:Button ID="Button1" CssClass="btn btn__signout" runat="server" Text="Đăng xuất" OnClick="Button1_Click1" />--%>
+        </nav>
+
+        <div class="container">
+            <div class="addmin__wrapper pt-5">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
